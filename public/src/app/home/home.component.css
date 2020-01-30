@@ -1,0 +1,43 @@
+/* Colors */
+:root{
+    --Darkblue: #1F5673;
+    --Lightblue: #759FBC;
+    --Orange: #E17638;
+    --Black: #000;
+}
+
+/* HEADER */
+header{
+    padding: 1rem  0;
+    background-color: var(--Darkblue);
+}
+.logo h1{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2.5rem;
+    color: var(--Lightblue);
+}
+ul li{
+    display: inline-block;
+    margin-left: 3.5rem;
+}
+ul li a{
+    text-decoration: none;
+    color: var(--Lightblue);
+    border: 2px solid transparent;
+    padding: 2px 7px;
+    transition: all 0.7s;
+}
+ul li a:hover{
+    border-color: var(--Orange);
+    color: var(--Orange);
+    transition: all 0.3s;
+}
+
+/* BANNER SECTION */
+#banner{
+    background-image: url('https://nimbuswatersystems.com/sites/default/files/front-banner/banner_image_0_0.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 65vh;
+}
