@@ -5,10 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AppComponent } from './app.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'createproduct', component: CreateproductComponent },
+  { path: 'drippes', component: HomeComponent},
   { path: '**', component: PagenotfoundComponent }
 ];
 
