@@ -1,0 +1,19 @@
+<h4>Register a Employee</h4>
+<form (submit)="createEmployee()">
+  <div class="container" style="height:450px; width:100%; border:1px solid salmon">
+    <h5>Employee First Name:</h5>
+    <input type="text" name="first_name" [(ngModel)]="newEmployee.first_name" />
+    <h5>Employee Last Name:</h5>
+    <input type="text" name="last_name" [(ngModel)]="newEmployee.last_name" />
+    <h5>Employee Password:</h5>
+    <input type="text" name="password" [(ngModel)]="newEmployee.password" />
+    <h5>Profile URL:</h5>
+    <input type="text" name="profile_url" [(ngModel)]="newEmployee.profile_url" />
+    <h5>Email:</h5>
+    <input type="text" name="email" [(ngModel)]="newEmployee.email" />
+    <h5>Authority:</h5>
+    <input type="number" name="authority" placeholder="0 to 9" [(ngModel)]="newEmployee.authority" />
+    <input type="submit" value="Create employee" />
+    <p *ngIf="errors">something happened:{{errors}}</p>
+  </div>
+</form>

@@ -25,5 +25,26 @@ module.exports = {
                 }
             })
     },
+    createEmployee: function (req, res) {
+        console.log('req.body:', req.body)
+        const errors = { errors: "" }
+        Employee.find()
+            .then(employees => {
+                for (var employee of employees) {
+                    if (req.body.name == Employee.name) {
+                        console.log('errors happened:')
+                        errors.errors = "can't have same names in Employee!"
+                    }
+                }
+                console.log('errors:', errors)
+                if (errors.errors != "") {
+                    res.json(errors)
+                } else {
+                    Employee.create(req.body)
+                        .then(employee => res.json(employee))
+                        .catch(err => res.json(err));
+                }
+            })
+    },
 }
 
