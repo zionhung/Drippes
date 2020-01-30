@@ -9,8 +9,8 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
-  { path: 'createproduct', component: CreateproductComponent },
-  { path: 'drippes', component: HomeComponent},
+  { path: 'createproductfrontend', component: CreateproductComponent },
+  { path: 'drippes', component: HomeComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 
