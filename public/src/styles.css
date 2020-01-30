@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* These are universal styles that will be implemented through the whole app */
+:root{
+    --Darkblue: #1F5673;
+    --Lightblue: #759FBC;
+    --Orange: #E17638;
+    --Black: #000;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+}
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+.bold{
+    font-weight: 600;
+}
+ul li{
+    list-style: none;
+}
+.flex-col{   /*  This displays content vertically  */
+    display: flex;
+    flex-direction: column;
+}
+.flex{   /*  This displays content horizontally and items will be spaced evenly in between  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
