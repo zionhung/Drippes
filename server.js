@@ -11,6 +11,9 @@ app.use(
     cookie: { maxAge: 60000 }
   })
 );
+app.use(express.static(__dirname + '/drippes/dist/drippes'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //mongoose section
 const mongoose = require("mongoose");
@@ -20,22 +23,9 @@ mongoose.connect("mongodb://localhost/drippes_api", {
   useFindAndModify: false
 });
 
-//models under mongoose section  model.js file takes the models file
-require("./server/config/models.js");   //??? quite confused on this part
-
-
-app.use(express.static(__dirname + '/drippes/dist/drippes'));
-//in order to access POST data, we need to pull it out of the request objects
-app.use(express.urlencoded({ extended: true }));
-
-//express&json
-app.use(express.json());
-
-//Routes  <= controller in routes   controllers=> callbacks
+require("./server/config/models.js");
 require("./server/config/routes.js")(app);
 
-// this route will be triggered if any of the routes above did not match only when URL address on Express
-//needs path
 const path = require('path');
 app.all("*", (req, res, next) => {
   res.sendFile(path.resolve("./drippes/dist/drippes/index.html"))
