@@ -16,7 +16,6 @@ html{
     font-size: 18px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 300;
-    color: ;
 }
 .wrapper{
     width: 90%;
@@ -27,4 +26,13 @@ html{
 }
 ul li{
     list-style: none;
+}
+.flex-col{   /*  This displays content vertically  */
+    display: flex;
+    flex-direction: column;
+}
+.flex{   /*  This displays content horizontally and items will be spaced evenly in between  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
