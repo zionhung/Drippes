@@ -1,1 +1,15 @@
-<p>createproduct works!</p>
+<h4>Register a product</h4>
+<form (submit)="createProduct()">
+  <div class="container" style="height:450px; width:100%; border:1px solid salmon">
+    <h5>Product Name:</h5>
+    <input type="text" name="product_name" [(ngModel)]="newProduct.product_name" />
+    <h5>Product URL:</h5>
+    <input type="text" name="product_url" [(ngModel)]="newProduct.product_url" />
+    <h5>Product Price:</h5>
+    <input type="number" name="unit_price" [(ngModel)]="newProduct.unit_price" />
+    <h5>Product Count Name:</h5>
+    <input type="text" name="unit_count_name" [(ngModel)]="newProduct.unit_count_name" />
+    <input type="submit" value="Create Product" />
+    <p *ngIf="errors">something happened:{{errors}}</p>
+  </div>
+</form>

@@ -13,13 +13,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PagenotfoundComponent,
-    CreateproductComponent
+    CreateproductComponent,
+    AddemployeeComponent
   ],
   imports: [
     BrowserModule,

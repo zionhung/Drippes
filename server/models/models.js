@@ -45,7 +45,6 @@ const OrderSchema = new mongoose.Schema({
 
 
 //some changes 
-
 const EmployeeSchema = new mongoose.Schema(
   {
     first_name: {
@@ -78,6 +77,8 @@ const EmployeeSchema = new mongoose.Schema(
     },
     authority: {
       type: Number,
+      min: 0,
+      max: 9,
       default: 0
     },
     avg_rate: {
