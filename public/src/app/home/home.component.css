@@ -6,6 +6,16 @@
     --Black: #000;
 }
 
+/* Same style for this page */
+h3{
+    font-size: 2.5rem;
+    color: var(--Darkblue);
+}
+#products, #about, #contact{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 /* HEADER */
 header{
     padding: 1rem  0;
@@ -13,8 +23,8 @@ header{
 }
 .logo h1{
     font-family: 'Comfortaa', sans-serif;
-    font-size: 2.5rem;
-    color: var(--Lightblue);
+    font-size: 2.85rem;
+    color: #fff;
 }
 ul li{
     display: inline-block;
@@ -22,8 +32,9 @@ ul li{
 }
 ul li a{
     text-decoration: none;
-    color: var(--Lightblue);
+    color: #fff;
     border: 2px solid transparent;
+    font-size: 1.25rem;
     padding: 2px 7px;
     transition: all 0.7s;
 }
@@ -31,6 +42,9 @@ ul li a:hover{
     border-color: var(--Orange);
     color: var(--Orange);
     transition: all 0.3s;
+}
+ul li .login{
+    color: var(--Orange);
 }
 
 /* BANNER SECTION */
@@ -69,9 +83,113 @@ ul li a:hover{
     transition: all 0.3s;
 }
 
+/* ABOUT */
+#about .content-box{
+    margin-top: 2rem;
+}
+.company-image{
+    width: 45%;
+}
+.about-text{
+    width: 50%;
+}
+
 /* MAIN BODY */
-#products{}
+#products .cards{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
 #products .cards .card{
-    width: 15%;
-    height: 15%;
+    width: 55%;
+}
+#products .cards .card .product-btn{
+    background-color: var(--Orange);
+    border: 0;
+    outline: 0;
+    color: #fff;
+    padding: 3px 15px;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    transition: all 0.7s;
+}
+#products .cards .card .product-btn:hover{
+    cursor: pointer;
+    background-color: var(--Darkblue);
+    box-shadow: 3px 3px 5px rgb(82, 109, 124);
+    transition: all 0.3s;
+}
+
+/* CONTACT */
+.contact-content{
+    margin-top: 2rem;
+}
+.form{
+    width: 52%;
+}
+.map{
+    width: 45%;
+}
+form>*{
+    margin-bottom: 12px;
+}
+form input{
+    height: 1.5rem;
+    font-size: 0.85rem;
+    padding-left: 5px;
+    color: #1F5673;
+}
+form textarea{
+    height: 4.5rem;
+    font-size: 0.85rem;
+    padding-left: 5px;
+    color: #1F5673;
+}
+form input,
+form textarea{
+    border: 1px solid #1F5673;
+    outline: 0;
+    transition: all 0.7s;
+}
+form input:hover,
+form textarea:hover{
+    border-color: #759FBC;
+    transition: all, 0.3s;
+}
+form input::placeholder,
+form textarea::placeholder{
+    color: #1F5673;
+}
+.form-btn{
+    color: #fff;
+    background-color: #1F5673;
+    border: 1px solid #1F5673;
+    text-transform: uppercase;
+    padding: 5px 0;
+    font-size: 1rem;
+    width: 30%;
+    transition: all 0.7s;
+}
+.form-btn:hover{
+    background-color: transparent;
+    color: #1F5673;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* FOOTER */
+footer{
+    background-color: var(--Darkblue);
+    padding: 2.25rem 0;
+}
+.footer-nav ul li{
+    display: block;
+    margin-bottom: 12px;
+}
+.company-info>*{
+    margin-bottom: 12px;
+    color: #fff;
+    font-size: 1.1rem;
 }
