@@ -23,15 +23,7 @@ mongoose.connect("mongodb://localhost/drippes_api", {
 //models under mongoose section  model.js file takes the models file
 require("./server/config/models.js");   //??? quite confused on this part
 
-//flash we only need it when we using ejs on server
-// const flash = require("express-flash");
-// app.use(flash());
-// var validate = require("mongoose-validator");
 
-//path&ejs
-// app.use(express.static(__dirname + "/static"));
-// app.set("view engine", "ejs");
-// app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + '/drippes/dist/drippes'));
 //in order to access POST data, we need to pull it out of the request objects
 app.use(express.urlencoded({ extended: true }));
