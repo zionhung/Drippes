@@ -12,14 +12,14 @@ import { HttpClientModule } from "@angular/common/http";
 //componennts
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { LoginComponent } from './login/login.component';
+import { CreateproductComponent } from './createproduct/createproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PagenotfoundComponent,
-    LoginComponent
+    CreateproductComponent
   ],
   imports: [
     BrowserModule,
