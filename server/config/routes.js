@@ -1,23 +1,9 @@
-var restaurants_controller = require("../controllers/controllers.js");   //quotes => controller
+var DrippesController = require("../controllers/controllers.js");
+const path = require('path');
 
-module.exports = function (app) {
-  app.get("/getrestaurants", (req, res) => {
-    restaurants_controller.getRestaurants(req, res);
+module.exports = function(app){
+  app.all("*", (req, res, next) => {
+        res.sendFile(path.resolve("./public/dist/public/index.html"));
   });
-  app.get("/getrestaurant/:id", (req, res) => {
-    restaurants_controller.getRestaurant(req, res);
-  });
-  app.post("/createrestaurant", (req, res) => {
-    restaurants_controller.createRestaurant(req, res);
-  });
-  app.put("/updaterestaurant", (req, res) => {
-    restaurants_controller.updateRestaurant(req, res);
-  });
-  app.delete("/removerestaurant/:id", (req, res) => {
-    restaurants_controller.removeRestaurant(req, res);
-  });
-  app.post("/createreview", (req, res) => {
-    restaurants_controller.createReview(req, res);
-  })
 };
 
