@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-owner',
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class OwnerComponent implements OnInit {
+
+export class AdminComponent implements OnInit {
   cur_user: any;
   edit_convert: any;
   employees: any;

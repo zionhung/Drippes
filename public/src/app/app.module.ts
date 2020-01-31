@@ -15,6 +15,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { OwnerComponent } from './owner/owner.component';
+import { AdminComponent } from './admin/admin.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { OwnerComponent } from './owner/owner.component';
     PagenotfoundComponent,
     CreateproductComponent,
     AddemployeeComponent,
-    OwnerComponent
+    OwnerComponent,
+    AdminComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

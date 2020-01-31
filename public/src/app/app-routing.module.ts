@@ -8,6 +8,8 @@ import { CreateproductComponent } from './createproduct/createproduct.component'
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { HomeComponent } from './home/home.component';
 import { OwnerComponent } from './owner/owner.component';
+import { AdminComponent } from './admin/admin.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'drippes', component: HomeComponent },
   {
     path: 'admin', children: [
+      { path: '', component: AdminComponent },
       { path: 'owner', component: OwnerComponent },
+      { path: ':id/reviews', component: ReviewsComponent },
     ]
   },
   { path: '**', component: PagenotfoundComponent }
