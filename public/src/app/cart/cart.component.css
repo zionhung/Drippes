@@ -70,3 +70,15 @@ form{
     box-shadow: 4px 4px 7px rgb(82, 109, 124);
     transition: all 0.3s;
 }
+.date-selection{
+    margin-top: 5rem;
+}
+.date-selection label{
+    margin-right: 1rem;
+}
+.carrier{
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
