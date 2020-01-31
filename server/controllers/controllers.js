@@ -47,6 +47,7 @@ module.exports = {
             })
             .catch(err => {
                 console.log('THERE IS AN ERROR', err);
+                res.json(err)
             })
     },
     createEmployee: function (req, res) {

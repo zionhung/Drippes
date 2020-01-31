@@ -1,0 +1,72 @@
+/* Colors */
+:root{
+    --Darkblue: #1F5673;
+    --Lightblue: #759FBC;
+    --Orange: #E17638;
+    --Black: #000;
+}
+
+header{
+    padding: 1.7rem  0;
+    background-color: var(--Darkblue);
+    color: #fff;
+}
+.nav a{
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 2px solid transparent;
+    transition: all 0.7s;
+}
+.nav a:hover{
+    color: var(--Orange);
+    border-color: var(--Orange);
+    transition: all 0.3s;
+}
+
+form{
+    margin-top: 8rem;
+}
+.items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+.items .item{
+    width: 90%;
+    height: 450px;
+}
+.addMore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 415px;
+    transition: all 0.7s;
+}
+.addMore:hover{
+    background-color: var(--Lightblue);
+    transition: all 0.3s;
+}
+.addMore .plus{
+    font-size: 13rem;
+    color: var(--Orange);
+}
+.addMore .plus:hover{
+    color: #fff;
+}
+.btn{
+    height: 25px;
+    background-color: var(--Orange);
+    outline: 0;
+    color: #fff;
+    border: 0;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: all 0.7s;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: var(--Darkblue);
+    box-shadow: 4px 4px 7px rgb(82, 109, 124);
+    transition: all 0.3s;
+}
