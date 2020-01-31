@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { CartComponent } from './cart/cart.component';
+import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { OwnerComponent } from './owner/owner.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CartComponent } from './cart/cart.component';
     PagenotfoundComponent,
     CreateproductComponent,
     CartComponent
+    AddemployeeComponent,
+    OwnerComponent
   ],
   imports: [
     BrowserModule,
