@@ -20,35 +20,7 @@ const ProductSchema = new mongoose.Schema({
   unit_count_name: {
     type: String,
     required: [true, "Product-count-name is required"],
-    default: 'default count name'
-  }
-},
-  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
-);
-
-const ReviewSchema = new mongoose.Schema({
-  client_first_name: {
-    type: String,
-    required: [true, "Client First Name is required"],
-    minlength: [3, "Client First Name has a minimum length of 3 characters"],
-    default: 'Default Client First Name!'
-  },
-  client_last_name: {
-    type: String,
-    required: [true, "Product Name is required"],
-    minlength: [3, "Product Name has a minimum length of 3 characters"],
-    default: 'Default Product Name!'
-  },
-  reviews: {
-    type: String,
-    required: [true, "Product-count-name is required"],
-    default: 'default reviews info'
-  },
-  rate: {
-    type: Number,
-    min: 0,
-    max: 5,
-    default: 3
+    default: 'default count_name'
   }
 },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
@@ -57,7 +29,7 @@ const ReviewSchema = new mongoose.Schema({
 const OrderSchema = new mongoose.Schema({
   items: {
     type: Array,
-    default: [{ product_id: 'product_id', product_name: 'default_product', qty: 0 }]
+    default: [{ product_id: 'default_product_id', product_name: 'default_product_name', qty: 0 }]
   },
   address: {
     type: String,
@@ -67,9 +39,9 @@ const OrderSchema = new mongoose.Schema({
   },
   carrier: {
     type: String,
-    required: [true, "Carrier name is required"],
-    minlength: [3, "Carrier name has a minimum length of 3 characters"],
-    default: 'Default carrier name!'
+    required: [true, "Carrier_id is required"],
+    minlength: [3, "Carrier_id has a minimum length of 3 characters"],
+    default: 'defaultcarrier_id'
   },
   delivery_date: {
     type: Date,
@@ -88,7 +60,6 @@ const OrderSchema = new mongoose.Schema({
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
 
-//some changes 
 const EmployeeSchema = new mongoose.Schema(
   {
     first_name: {
@@ -143,7 +114,71 @@ const EmployeeSchema = new mongoose.Schema(
       max: 10000,
       default: 1
     },
-    tasks: [OrderSchema]
+    tasks: {
+      type: Array,
+      default: ['default_order_id']
+    }
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
+
+const CustomerSchema = new mongoose.Schema(
+  {
+    first_name: {
+      type: String,
+      required: [true, "Employee-First-Name is required"],
+      minlength: [3, "First Name has a minimum length of 3 characters"],
+      default: 'Default first name!'
+    },
+    last_name: {
+      type: String,
+      required: [true, "Employee-Last-Name is required"],
+      minlength: [3, "Last Name has a minimum length of 3 characters"],
+      default: 'Default last name!'
+    },
+    password: {
+      type: String,
+      required: [true, "Employee-Password is required"],
+      minlength: [6, "PassWord has a minimum length of 6 characters"],
+      default: '999999'
+    },
+    profile_url: {
+      type: String,
+      required: [true, "Profile is required"],
+      default: 'https://thumbs.gfycat.com/GlossyFaroffGoat-size_restricted.gif'
+    },
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      default: 'rlopantzi@gmail.com'
+    },
+    address: {
+      type: String,
+      required: [true, "Address is required"],
+      default: '3335 Susan St #200, Costa Mesa, CA 92626'
+    },
+    number: {
+      type: Number,
+      min: [10, "number should greagter than 10 digits"],
+      max: [12, "number should less than 12 digits"],
+      required: [true, "Phone-Number is required"],
+      default: 2138224642
+    },
+    creaditcard: {
+      type: Number,
+      min: [12, "credit number should greagter than 12 digits"],
+      max: [16, "credit number should greagter than 16 digits"],
+      required: [true, "Credit info is required"],
+      default: 1234567890123456
+    },
+    cart: {
+      type: Array,
+      default: []
+    },
+    orders: {
+      type: Array,
+      default: ['default_order_id']
+    }
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
@@ -151,3 +186,4 @@ const EmployeeSchema = new mongoose.Schema(
 mongoose.model('Product', ProductSchema);
 mongoose.model('Order', OrderSchema);
 mongoose.model('Employee', EmployeeSchema);
+mongoose.model('Customer', CustomerSchema);
