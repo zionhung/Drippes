@@ -14,4 +14,19 @@ export class HttpService {
     console.log('data:', data)
     return this._httpClient.post('/createemployee', data);
   };
+  getEmployees() {
+    return this._httpClient.get('/getemployees');
+  };
+  removeEmployee(_id: string) {
+    return this._httpClient.delete(`/removeemployee/${_id}`)
+  };
+  makeAdmin(_id: string) {
+    return this._httpClient.put('/makeAdmin', { id: _id })
+  };
+  makeEmployee(_id: string) {
+    return this._httpClient.put('/makeemployee', { id: _id })
+  };
+  change_convert_rate(data) {
+    return this._httpClient.put('/changeconvertrate', data)
+  }
 }

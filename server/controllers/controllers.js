@@ -46,5 +46,37 @@ module.exports = {
                 }
             })
     },
+    getEmployees: function (req, res) {
+        Employee.find()
+            .sort({ name: 1 })
+            .then(employees => {
+                //console.log('Employees:', Employees)
+                res.json(employees)
+            })
+            .catch(err => res.json(err));
+    },
+    removeEmployee: function (req, res) {
+        Employee.remove({ _id: req.params.id })
+            .then(results => res.json(results))
+            .catch(err => res.json(err));
+    },
+    makeAdmin: function (req, res) {
+        console.log('req.body.id:', req.body.id)
+        Employee.findOneAndUpdate({ _id: req.body.id }, { authority: 1 })
+            .then(employee => res.json(employee))
+            .catch(err => res.json(err));
+    },
+    makeEmployee: function (req, res) {
+        console.log('req.body.id:', req.body.id)
+        Employee.findOneAndUpdate({ _id: req.body.id }, { authority: 0 })
+            .then(employee => res.json(employee))
+            .catch(err => res.json(err));
+    },
+    changeConvertrate: function (req, res) {
+        console.log('req.body.id:', req.body.id)
+        Employee.findOneAndUpdate({ _id: req.body.id }, { convert_rate: req.body.convert_rate })
+            .then(employee => res.json(employee))
+            .catch(err => res.json(err));
+    },
 }
 
