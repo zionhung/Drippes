@@ -1,3 +1,4 @@
+<p>admin works!</p>
 <div class="currentUser">
   <table style="border:1px solid #0094ff;">
     <thead>
@@ -25,7 +26,6 @@
     <tr style="border:1px solid #0094ff;">
       <td style="border:1px solid #0094ff;">Total Employees:</td>
       <td style="border:1px solid #0094ff;">{{total_employees_count}}</td>
-      <td style="border:1px solid #0094ff;">{{total_employees}}</td>
     </tr>
   </thead>
 </table>
@@ -37,7 +37,6 @@
       <td style="border:1px solid #0094ff;">Employee Buckets Count (This Week)</td>
       <td style="border:1px solid #0094ff;">Employee Earnings Total(This Week)</td>
       <td style="border:1px solid #0094ff;">Change Conversion Rate</td>
-      <td style="border:1px solid #0094ff;">Employee Management</td>
     </tr>
   </thead>
   <tbody>
@@ -50,7 +49,6 @@
       <td style="border:1px solid #0094ff;">
         ${{employee.week_count_money}}*{{employee.convert_rate}}*0.05=${{employee.week_count_money*employee.convert_rate*0.05}}
       </td>
-        {{employee.week_count}}*{{employee.convert_rate}}*0.05=${{employee.week_count_money}}</td>
       <td style="border:1px solid #0094ff;">
         <form (submit)="change_convertRate(employee._id, employee.convert_rate)">
           <input type="number" name="convert_rate" [(ngModel)]="employee.convert_rate" />*0.05
@@ -58,19 +56,6 @@
           <p *ngIf="errors">errors happened:{{errors}}</p>
         </form>
       </td>
-      <td style="border:1px solid hsl(205, 100%, 50%);">
-        <button (click)="makeAdmin(employee._id)" *ngIf="employee.authority == 0">
-          Make Admin</button>
-        <button (click)="makeEmployee(employee._id)" *ngIf="employee.authority > 0">
-          Make Employee</button>
-        <button (click)="removeEmployee(employee._id)">
-          Remove Employee</button>
-      </td>
     </tr>
   </tbody>
 </table>
-
-<hr />
-
-<button [routerLink]="['/addemployeefrontend']">
-  Add Employee</button>

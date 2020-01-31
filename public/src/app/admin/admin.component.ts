@@ -2,25 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-owner',
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class OwnerComponent implements OnInit {
+
+export class AdminComponent implements OnInit {
   cur_user: any;
   edit_convert: any;
   employees: any;
   //edit_employee: any;
   total_employees_count: any;
-  edit_employee: any;
-  total_employees: any;
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this.cur_user = { first_name: 'Micheal', last_name: 'Choi', password: 'michealchoi', profile_url: 'https://media-exp1.licdn.com/dms/image/C5103AQFj5Negw55QIg/profile-displayphoto-shrink_200_200/0?e=1585180800&v=beta&t=KOGmgcIYEyRPYIzN-rfYrkBLU4qhr7ELJnTtHd0W9JY', email: 'michealchoid@gmail.com', authority: 9, avg_rate: 3, tasks: [] }
     this.edit_convert = { id: '', convert_rate: 3 };
     this.total_employees_count = 0;
-    this.total_employees = 0;
     this.getEmployees();
   }
   getEmployees() {
@@ -29,7 +27,6 @@ export class OwnerComponent implements OnInit {
       this.employees = data;
       for (let employee of this.employees) {
         this.total_employees_count += 1
-        this.total_employees += 1
       }
       console.log('get employees:', data)
     })
@@ -65,8 +62,6 @@ export class OwnerComponent implements OnInit {
     let tempObservable = this._httpService.change_convert_rate(this.edit_convert);
     tempObservable.subscribe(data => {
       console.log('changed the convert_rate of employee:', data)
-      // @ts-ignore
-      this.edit_convert.convert_rate = data.convert_rate;
       this.getEmployees();
       //this._router.navigate(['/admin'])
     })
