@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 
 import { CartComponent } from './cart/cart.component';
 import { OwnerComponent } from './owner/owner.component';
+import { AdminComponent } from './admin/admin.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'drippes/cart/:id', component: CartComponent},
   {
     path: 'admin', children: [
+      { path: '', component: AdminComponent },
       { path: 'owner', component: OwnerComponent },
+      { path: ':id/reviews', component: ReviewsComponent },
     ]
   },
   { path: '**', component: PagenotfoundComponent }
