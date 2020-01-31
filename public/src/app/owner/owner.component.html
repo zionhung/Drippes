@@ -24,7 +24,7 @@
   <thead>
     <tr style="border:1px solid #0094ff;">
       <td style="border:1px solid #0094ff;">Total Employees:</td>
-      <td style="border:1px solid #0094ff;">{{ employees_count }} - 6</td>
+      <td style="border:1px solid #0094ff;">{{total_employees}}</td>
     </tr>
   </thead>
 </table>
@@ -45,7 +45,7 @@
       <td style="border:1px solid hsl(205, 100%, 50%);">{{employee.avg_rate}}</td>
       <td style="border:1px solid hsl(205, 100%, 50%);">{{employee.week_count}}</td>
       <td style="border:1px solid #0094ff;">
-        {{employee.week_count}}*{{employee.avg_rate}}*0.05=${{employee.week_count_money}}</td>
+        {{employee.week_count}}*{{employee.convert_rate}}*0.05=${{employee.week_count_money}}</td>
       <td style="border:1px solid #0094ff;">
         <form (submit)="change_convertRate(employee._id, employee.convert_rate)">
           <input type="number" name="convert_rate" [(ngModel)]="employee.convert_rate" />*0.05
