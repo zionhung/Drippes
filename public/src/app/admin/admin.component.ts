@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
-  selector: 'app-owner',
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class OwnerComponent implements OnInit {
+
+export class AdminComponent implements OnInit {
   cur_user: any;
   edit_convert: any;
   employees: any;
@@ -61,8 +62,6 @@ export class OwnerComponent implements OnInit {
     let tempObservable = this._httpService.change_convert_rate(this.edit_convert);
     tempObservable.subscribe(data => {
       console.log('changed the convert_rate of employee:', data)
-      // @ts-ignore
-      this.edit_convert.convert_rate = data.convert_rate;
       this.getEmployees();
       //this._router.navigate(['/admin'])
     })

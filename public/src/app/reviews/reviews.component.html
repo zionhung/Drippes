@@ -1,0 +1,34 @@
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">Reviews for
+        {{this_employee.first_name}} {{this_employee.last_name}}:</td>
+      <td style="border:1px solid #0094ff;">{{total_reviews_count}}</td>
+    </tr>
+  </thead>
+</table>
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">Reviews From</td>
+      <td style="border:1px solid #0094ff;">Client Rate</td>
+      <td style="border:1px solid #0094ff;">Reviews</td>
+      <td style="border:1px solid #0094ff;">Review Dates</td>
+      <td style="border:1px solid #0094ff;">Manage Reviews</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border:1px solid #0094ff;" *ngFor="let task of tasks">
+      <td style="border:1px solid #0094ff;">{{task.review.client_first_name}} {{task.review.client_last_name}}</td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">{{task.review.rate}}</td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">{{task.review.reviews}}</td>
+      <td style="border:1px solid #0094ff;">
+        {{task.review.created_at}}
+      </td>
+      <td style="border:1px solid #0094ff;">
+        <button [routerLink]="['/removereview']">
+          Remove Review</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
