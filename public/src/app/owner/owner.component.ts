@@ -11,17 +11,22 @@ export class OwnerComponent implements OnInit {
   edit_convert: any;
   employees: any;
   edit_employee: any;
+  total_employees: any;
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
     this.cur_user = { first_name: 'Micheal', last_name: 'Choi', password: 'michealchoi', profile_url: 'https://media-exp1.licdn.com/dms/image/C5103AQFj5Negw55QIg/profile-displayphoto-shrink_200_200/0?e=1585180800&v=beta&t=KOGmgcIYEyRPYIzN-rfYrkBLU4qhr7ELJnTtHd0W9JY', email: 'michealchoid@gmail.com', authority: 9, avg_rate: 3, tasks: [] }
     this.edit_convert = { id: '', convert_rate: 3 };
+    this.total_employees = 0;
     this.getEmployees();
   }
   getEmployees() {
     let tempObservable = this._httpService.getEmployees();
     tempObservable.subscribe(data => {
       this.employees = data;
+      for (let employee of this.employees) {
+        this.total_employees += 1
+      }
       console.log('get employees:', data)
     })
   }

@@ -83,10 +83,14 @@ const EmployeeSchema = new mongoose.Schema(
     },
     avg_rate: {
       type: Number,
+      min: 0,
+      max: 5,
       default: 3
     },
     convert_rate: {
       type: Number,
+      min: 0,
+      max: 5,
       default: 3
     },
     tasks: [OrderSchema]
