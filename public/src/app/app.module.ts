@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
+import { CartComponent } from './cart/cart.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AdminComponent } from './admin/admin.component';
@@ -24,6 +25,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
     HomeComponent,
     PagenotfoundComponent,
     CreateproductComponent,
+    CartComponent,
     AddemployeeComponent,
     OwnerComponent,
     AdminComponent,
