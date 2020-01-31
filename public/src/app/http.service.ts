@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class HttpService {
   constructor(private _httpClient: HttpClient) { }
+  getAllProducts(){
+    return this._httpClient.get('/drippes')
+  }
   createProduct(data) {
     return this._httpClient.post('/createproduct', data);
   };
