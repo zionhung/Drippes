@@ -23,7 +23,7 @@ import { OwnerComponent } from './owner/owner.component';
     HomeComponent,
     PagenotfoundComponent,
     CreateproductComponent,
-    CartComponent
+    CartComponent,
     AddemployeeComponent,
     OwnerComponent
   ],
