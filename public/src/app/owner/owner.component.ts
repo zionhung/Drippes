@@ -63,6 +63,8 @@ export class OwnerComponent implements OnInit {
     let tempObservable = this._httpService.change_convert_rate(this.edit_convert);
     tempObservable.subscribe(data => {
       console.log('changed the convert_rate of employee:', data)
+      // @ts-ignore
+      this.edit_convert.convert_rate = data.convert_rate;
       this.getEmployees();
       //this._router.navigate(['/admin'])
     })
