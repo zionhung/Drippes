@@ -85,6 +85,10 @@ const EmployeeSchema = new mongoose.Schema(
       type: Number,
       default: 3
     },
+    convert_rate: {
+      type: Number,
+      default: 3
+    },
     tasks: [OrderSchema]
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }

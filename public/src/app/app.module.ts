@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
+import { OwnerComponent } from './owner/owner.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
     HomeComponent,
     PagenotfoundComponent,
     CreateproductComponent,
-    AddemployeeComponent
+    AddemployeeComponent,
+    OwnerComponent
   ],
   imports: [
     BrowserModule,
