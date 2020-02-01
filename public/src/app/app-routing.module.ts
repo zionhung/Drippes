@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { HomeComponent } from './home/home.component';
+
+import { CartComponent } from './cart/cart.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReviewsComponent } from './reviews/reviews.component';
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'createproductfrontend', component: CreateproductComponent },
   { path: 'drippes', component: HomeComponent },
+  { path: 'drippes/cart/:id', component: CartComponent},
   {
     path: 'admin', children: [
       { path: '', component: AdminComponent },

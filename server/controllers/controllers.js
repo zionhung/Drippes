@@ -5,6 +5,15 @@ const Employee = mongoose.model('Employee');
 const Customer = mongoose.model('Customer')
 
 module.exports = {
+    getAllProducts(req, res){
+        console.log('Grabbing products');
+        Product.find()
+        .then(products => {
+            console.log('THESE ARE THE PRODUCTS', products)
+            res.json({products: products})
+        })
+        .catch(err => res.json(err));
+    },
     createProduct: function (req, res) {
         console.log('req.body:', req.body)
         const errors = { errors: "" }
@@ -24,6 +33,22 @@ module.exports = {
                         .then(product => res.json(product))
                         .catch(err => res.json(err));
                 }
+            })
+    },
+    updateProduct(req, res){
+        console.log('PRODUCT TO BE UPDATED: ' + req.params.id);
+        Product.findByIdAndUpdate(
+            {_id: req.params.id},
+            req.body,
+            {runValidators: true, context: 'query'}
+        )
+            .then(product => {
+                console.log('THIS PRODUCT: ', product)
+                res.json(product)
+            })
+            .catch(err => {
+                console.log('THERE IS AN ERROR', err);
+                res.json(err)
             })
     },
     createEmployee: function (req, res) {
