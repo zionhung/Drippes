@@ -33,4 +33,9 @@ export class HomeComponent implements OnInit {
   //   });
   //   this.getProducts();
   // }
+  selectedProduct = {};
+  constructor(private _http: HttpService) { }
+
+  ngOnInit() {}
+  
 }

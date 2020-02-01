@@ -55,6 +55,8 @@ ul li .special:hover{
     color: #fff;
     border-color: none;
     box-shadow: inset -2px -2px 4px #7093A5, inset 3px 3px 7px #14374A;
+ul li .login{
+    color: var(--Orange);
 }
 
 /* BANNER SECTION */
@@ -79,10 +81,15 @@ ul li .special:hover{
 }
 .banner-btn{
     text-decoration: none;
+}
+.banner-btn{
+    margin-top: 1.25rem;
     padding: 10px 30px;
     background-color: var(--Orange);
     color: #fff;
     font-size: 1rem;
+    outline: 0;
+    border: 0;
     transition: all 0.7s;
 }
 .banner-btn:hover{
