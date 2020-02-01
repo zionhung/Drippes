@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Drippes | Water For You</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,6 +32,41 @@
     </script>
 
 </head>
+
+<body>
+  <header>
+    <div class="wrapper flex">
+      <div class="logo">
+        <h1>Drippes</h1>
+      </div>
+      <div class="nav">
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Products</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+          <li>
+            <a href="#" class="bold">Login</a>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="banner">
+    <div class="wrapper">
+      <div class="text-content"></div>
+    </div>
+  </section>
+</body>
+
+</html>
 <body>
     <header>
         <div class="wrapper flex">
@@ -36,15 +76,19 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="#">About</a>
+                        <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#">Products</a>
+                        <a href="#products">Products</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                     <li>
+                        <a href="#" class="bold special">Login</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bold special"><i class="icon ion-md-cart" size="large"></i></a>
                         <a href="#" class="bold login">Login</a>
                     </li>
                 </ul>
@@ -57,9 +101,62 @@
             <div class="text-content">
                 <h1>Satisfy Every Taste</h1>
                 <p>Never run out of your favorite beverages</p>
+                <a href="#products" class="banner-btn">Start Shopping</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="main" class="wrapper">
+
+        <div id="about">
+            <h3>About</h3>
+            <div class="content-box flex">
+                <div class="company-image">
+                    <img src="https://media-exp1.licdn.com/dms/image/C511BAQEI0EM5gF5RQw/company-background_10000/0?e=2159024400&v=beta&t=gZMBPp39U_5FF9L5uYLg06z4VfhPlZ0VL7oNeNwsoyE" class="pic" alt="">
+                </div>
+                <div class="about-text">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta suscipit est sit temporibus, voluptates doloremque quasi? Doloremque modi cupiditate id dolorum nemo nisi, rem perferendis deleniti dolorem recusandae ipsam voluptatum eius neque esse tempore? Laborum inventore non officiis maxime, quasi aut, consequuntur vero molestiae odio optio tempora placeat laboriosam sit delectus, libero et. Officia eos dolores repellat nemo aut ab minima, quo cum molestias distinctio modi beatae laudantium? Illum suscipit laudantium facere consectetur nobis blanditiis non dignissimos distinctio sed ex dicta perspiciatis, neque culpa illo nemo necessitatibus cum saepe iste quidem deleniti libero quibusdam deserunt repudiandae quisquam? Iste, aut error.</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ratione praesentium amet excepturi assumenda accusantium facilis in, perspiciatis tempore qui, odit maxime sapiente consectetur veniam saepe voluptate iure aliquam iusto esse veritatis reiciendis sequi suscipit eum. Exercitationem, at impedit, sapiente odio et quibusdam illum numquam inventore sed, blanditiis ipsum in rem. Explicabo, iste ut? Rem quaerat ad tempore esse debitis. Tenetur, voluptatem omnis fuga maxime maiores accusantium officia perspiciatis aliquid nisi eum vero quae voluptatum hic, cumque optio consectetur fugit.</p>
+                </div>
                 <button class="banner-btn">Start Shopping</button>
             </div>
         </div>
+        
+        <div id="products">
+            <h3>Products</h3>
+            <div class="cards">
+
+                <div class="card flex-col-center" *ngFor="let product of products">
+                    <img src="{{ product.product_url }}" class="pic" alt="">
+                    <p>{{ product.product_name }}</p>
+                    <p>{{ product.unit_price }}</p>
+                    <button class="product-btn">Add to cart</button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="contact">
+            <h3>Contact</h3>
+
+            <div class="contact-content flex">
+                <div class="form">
+                    <form class="flex-col">
+                        <input type="text" name="name" placeholder="Name">
+                        <input type="text" name="last_name" placeholder="Last Name">
+                        <input type="email" name="email" placeholder="Email">
+                        <textarea name="comment" placeholder="Comment"></textarea>
+                        <button type="submit" class="form-btn">Send</button>
+                    </form>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.555837064378!2d-117.91692908411085!3d33.69456338070471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcdf34c5749d35%3A0x1679dc53e018e228!2sCoding%20Dojo%20Orange%20County!5e0!3m2!1sen!2sus!4v1580426376141!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+
+        </div>
+
     </section>
 
     <section id="main" class="wrapper">

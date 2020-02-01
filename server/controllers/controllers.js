@@ -1,9 +1,19 @@
 const mongoose = require("mongoose");
 const Product = mongoose.model("Product");
 const Order = mongoose.model('Order');
-const Employee = mongoose.model('Employee')
+const Employee = mongoose.model('Employee');
+const Customer = mongoose.model('Customer')
 
 module.exports = {
+    getAllProducts(req, res){
+        console.log('Grabbing products');
+        Product.find()
+        .then(products => {
+            console.log('THESE ARE THE PRODUCTS', products)
+            res.json({products: products})
+        })
+        .catch(err => res.json(err));
+    },
     createProduct: function (req, res) {
         console.log('req.body:', req.body)
         const errors = { errors: "" }
@@ -23,6 +33,22 @@ module.exports = {
                         .then(product => res.json(product))
                         .catch(err => res.json(err));
                 }
+            })
+    },
+    updateProduct(req, res){
+        console.log('PRODUCT TO BE UPDATED: ' + req.params.id);
+        Product.findByIdAndUpdate(
+            {_id: req.params.id},
+            req.body,
+            {runValidators: true, context: 'query'}
+        )
+            .then(product => {
+                console.log('THIS PRODUCT: ', product)
+                res.json(product)
+            })
+            .catch(err => {
+                console.log('THERE IS AN ERROR', err);
+                res.json(err)
             })
     },
     createEmployee: function (req, res) {
@@ -76,6 +102,31 @@ module.exports = {
         console.log('req.body.id:', req.body.id)
         Employee.findOneAndUpdate({ _id: req.body.id }, { convert_rate: req.body.convert_rate })
             .then(employee => res.json(employee))
+            .catch(err => res.json(err));
+    },
+    getEmployee: function (req, res) {
+        Employee.findOne({ _id: req.params.id })
+            .then(employee => res.json(employee))
+            .catch(err => res.json(err));
+    },
+    getTask: function (req, res) {
+        Order.findOne({ _id: req.params.id })
+            .then(order => res.json(order))
+            .catch(err => res.json(err));
+    },
+    removeReview: function (req, res) {
+        Order.findOneAndUpdate({ _id: req.params.id }, { is_reviewed: false, review: { client_id: '', client_first_name: '', client_last_name: '', reviews: '', rate: 3 } })
+            .then(results => res.json(results))
+            .catch(err => res.json(err));
+    },
+    getOrder: function (req, res) {
+        Order.findOne({ _id: req.params.id })
+            .then(order => res.json(order))
+            .catch(err => res.json(err));
+    },
+    changeTaskStatus: function (req, res) {
+        Order.findOneAndUpdate({ _id: req.params.id }, { is_completed: true })
+            .then(results => res.json(results))
             .catch(err => res.json(err));
     },
 }

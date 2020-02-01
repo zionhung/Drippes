@@ -1,1 +1,78 @@
+<header>
+    <div class="wrapper flex">
+        <div class="user">
+            <h3>User: </h3>
+            <p>Address: </p>
+        </div>
+        <div class="title">
+            <h1>Cart</h1>
+        </div>
+        <div class="nav">
+            <a href="#">Back to store</a>
+        </div>
+    </div>
+</header>
+
+<section class="wrapper">
+    <form>
+
+        <div class="items">
+
+            <div class="item flex-col">
+                <img src="https://cdn10.bigcommerce.com/s-t4yqg98af9/products/642849/images/5571206/apic8mwai__10104.1551753179.1280.1280.jpg?c=2" class="pic">
+                <p>Product name</p>
+                <div class="qty-selection flex">
+                    <label>Select quantity: </label>
+                    <select name="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <button class="btn">Remove</button>
+            </div>
+
+            <div class="item flex-col">
+                <a href="#">
+                    <div class="addMore">
+                        <i class="icon plus ion-md-add" size="large"></i>
+                    </div>
+                </a>
+                <button class="btn">Add More</button>
+            </div>
+
+        </div>
+
+        <div class="date-selection">
+            <label >Choose your delivery date: </label>
+            <select name="delivery_date" required>
+                <option value="02-01-2020">Feb 01, 2020</option>
+                <option value="02-02-2020">Feb 02, 2020</option>
+                <option value="02-03-2020">Feb 03, 2020</option>
+                <option value="02-04-2020">Feb 04, 2020</option>
+                <option value="02-05-2020">Feb 05, 2020</option>
+                <option value="02-06-2020">Feb 06, 2020</option>
+                <option value="02-07-2020">Feb 07, 2020</option>
+            </select>
+        </div>
+
+        <div class="carrier">
+            <label>Choose your carrier</label>
+            <div class="delivery-person">
+                <div class="profile-pic">
+                    <img src="https://images.unsplash.com/photo-1527082395-e939b847da0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="pic" alt="">
+                </div>
+                <p>Rating: </p>
+                <button>Leave a review</button>
+                <input type="radio" name="first_name" value="Employee1">
+            </div>
+
+        </div>
+    </form>
+</section>
+
 <p>cart works!</p>

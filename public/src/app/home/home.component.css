@@ -43,6 +43,18 @@ ul li a:hover{
     color: var(--Orange);
     transition: all 0.3s;
 }
+ul li .special{
+    color: var(--Orange);
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: -2px -2px 5px #7093A5, 2px 2px 7px #14374A;
+}
+ul li .special:hover{
+    border: 0;
+    color: #fff;
+    border-color: none;
+    box-shadow: inset -2px -2px 4px #7093A5, inset 3px 3px 7px #14374A;
 ul li .login{
     color: var(--Orange);
 }
@@ -65,6 +77,10 @@ ul li .login{
 }
 .text-content p {
     font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+}
+.banner-btn{
+    text-decoration: none;
 }
 .banner-btn{
     margin-top: 1.25rem;
