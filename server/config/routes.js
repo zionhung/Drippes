@@ -23,6 +23,22 @@ module.exports = function (app) {
   app.put("/changeconvertrate", (req, res) => {
     DrippesController.changeConvertrate(req, res);
   });
+  app.get("/getemployee/:id", (req, res) => {
+    DrippesController.getEmployee(req, res);
+  });
+  app.get("/gettask/:id", (req, res) => {
+    DrippesController.getTask(req, res);
+  });
+  app.get("/removereview/:id", (req, res) => {
+    DrippesController.removeReview(req, res);
+  });
+  app.get("/getorder/:id", (req, res) => {
+    DrippesController.getOrder(req, res);
+  });
+  app.get("/changetaskstatus/:id", (req, res) => {
+    DrippesController.changeTaskStatus(req, res);
+  });
+
 
 
   app.all("*", (req, res, next) => {

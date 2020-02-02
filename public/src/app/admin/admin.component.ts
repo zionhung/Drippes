@@ -13,6 +13,8 @@ export class AdminComponent implements OnInit {
   employees: any;
   //edit_employee: any;
   total_employees_count: any;
+  temp_employee_tasks;
+  temp_order: any;
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
@@ -26,11 +28,26 @@ export class AdminComponent implements OnInit {
     tempObservable.subscribe(data => {
       this.employees = data;
       for (let employee of this.employees) {
-        this.total_employees_count += 1
+        this.total_employees_count += 1;
+        this.temp_employee_tasks = employee.tasks;
+        for (let task_id of this.temp_employee_tasks) {
+          this.temp_order = this.getOrder(task_id)
+          for (let item in this.temp_order.items) {
+            employee.count_money += item.unit_price * item.qty
+          }
+        }
       }
       console.log('get employees:', data)
     })
   }
+
+  getOrder(_id: string) {
+    let tempObservable = this._httpService.getOrder(_id);
+    tempObservable.subscribe((data: any) => {
+      console.log('get the order:', data)
+    })
+  }
+
   removeEmployee(_id: string) {
     let tempObservable = this._httpService.removeEmployee(_id);
     tempObservable.subscribe(data => {

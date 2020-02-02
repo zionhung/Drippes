@@ -3,22 +3,23 @@ import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-reviews',
-  templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.css']
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
 })
-
-export class ReviewsComponent implements OnInit {
+export class EmployeeComponent implements OnInit {
   this_employee: any;
   tasks_ids: any;
   tasks: Array<Object>;
-  total_reviews_count: any;
+  finished_tasks: Array<Object>;
   avg_rate: any;
+  temp_price_count: any;
+  finished_task_money: any;
   constructor(private _httpService: HttpService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.total_reviews_count = 0;
     this.avg_rate = 3;
+    this.finished_task_money = 0;
     this.getEmployee()
   }
 
@@ -32,35 +33,33 @@ export class ReviewsComponent implements OnInit {
         //console.log('this.tasks_ids2:', this.tasks_ids)
         for (var _id in this.tasks_ids) {
           this.getTask(_id);
-          this.total_reviews_count += 1
         }
-        this.getAvgRate();
       })
     })
-  }
-
-  getAvgRate() {
-    var total_rate = 0;
-    for (let task of this.tasks) {
-      total_rate += task.review.rate
-    }
-    this.avg_rate = total_rate / this.total_reviews_count
   }
 
   getTask(_id: string) {
     let tempObservable = this._httpService.getTask(_id);
     tempObservable.subscribe((data: any) => {
-      //console.log('get the editing restaurant:', data)
+      this.temp_price_count = 0;
+      for (var item of data.items) {
+        this.temp_price_count += item.unite_price * item.qty
+      }
+      data.count_money = this.temp_price_count;
       this.tasks.push(data)
+      if (data.is_completed == true) {
+        this.finished_tasks.push(data)
+        this.finished_task_money += this.temp_price_count;
+      }
     })
   }
 
-  removeReview(_id: string) {
-    //console.log('task _id:', _id);
-    let tempObservable = this._httpService.removeReview(_id);
-    tempObservable.subscribe(data => {
-      console.log("Removed Review:", data);
+  changeTaskStatus(_id: string) {
+    let tempObservable = this._httpService.changeTaskStatus(_id);
+    tempObservable.subscribe((data: any) => {
+      //console.log('changed the task status:', data)
       this.getEmployee();
     })
   }
+
 }

@@ -31,5 +31,20 @@ export class HttpService {
   };
   change_convert_rate(data) {
     return this._httpClient.put('/changeconvertrate', data)
-  }
+  };
+  getEmployee(id: string) {
+    return this._httpClient.get(`/getemployee/${id}`);
+  };
+  getTask(id: string) {
+    return this._httpClient.get(`/gettask/${id}`);
+  };
+  removeReview(_id: string) {
+    return this._httpClient.get(`/removereview/${_id}`)
+  };
+  getOrder(id: string) {
+    return this._httpClient.get(`/getorder/${id}`);
+  };
+  changeTaskStatus(id: string) {
+    return this._httpClient.get(`/changetaskstatus/${id}`);
+  };
 }

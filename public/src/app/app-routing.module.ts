@@ -12,11 +12,11 @@ import { CartComponent } from './cart/cart.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'createproductfrontend', component: CreateproductComponent },
-  { path: 'addemployeefrontend', component: AddemployeeComponent },
   { path: 'drippes', component: HomeComponent },
   { path: 'drippes/cart/:id', component: CartComponent},
   {
@@ -24,6 +24,13 @@ const routes: Routes = [
       { path: '', component: AdminComponent },
       { path: 'owner', component: OwnerComponent },
       { path: ':id/reviews', component: ReviewsComponent },
+      { path: 'addemployee', component: AddemployeeComponent }
+    ]
+  },
+  {
+    path: 'employee', children: [
+      { path: '', component: EmployeeComponent },
+      { path: ':id', component: EmployeeComponent },
     ]
   },
   { path: '**', component: PagenotfoundComponent }

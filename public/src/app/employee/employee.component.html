@@ -1,0 +1,88 @@
+<p>employee works!</p>
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">My Tasks:</td>
+    </tr>
+  </thead>
+</table>
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">Customer Name</td>
+      <td style="border:1px solid #0094ff;">Items</td>
+      <td style="border:1px solid #0094ff;">Date/Time</td>
+      <td style="border:1px solid #0094ff;">Address</td>
+      <td style="border:1px solid #0094ff;">Task Status</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border:1px solid #0094ff;" *ngFor="let task of tasks">
+      <td style="border:1px solid #0094ff;">{{task.customer_first_name}} {{task.customer_last_name}}</td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">
+        <p *ngFor="let item of task.items">
+          {{item.product_name}}:{{item.qty}} |
+        </p>
+      </td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">
+        {{task.createdAt}}
+      </td>
+      <td style="border:1px solid #0094ff;">
+        {{task.customer_address}}
+      </td>
+      <td style="border:1px solid #0094ff;">
+        <button *ngIf="task.is_completed == true" (click)="changeTaskStatus(task._id)">
+          Mark Done</button>
+        <button *ngIf="task.is_completed == false" (click)="changeTaskStatus(task._id)">
+          Done</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">My Earnings:</td>
+      <td style="border:1px solid #0094ff;">$ {{finished_task_money}} (total)</td>
+    </tr>
+  </thead>
+</table>
+<table style="border:1px solid #0094ff;">
+  <thead>
+    <tr style="border:1px solid #0094ff;">
+      <td style="border:1px solid #0094ff;">Items</td>
+      <td style="border:1px solid #0094ff;">Unit Price</td>
+      <td style="border:1px solid #0094ff;">Ratings</td>
+      <td style="border:1px solid #0094ff;">$$$ Earnings</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border:1px solid #0094ff;" *ngFor="let task of finished_tasks">
+      <td style="border:1px solid #0094ff;">
+        <p *ngFor="let item of task.items">
+          {{item.product_name}}:{{item.qty}} |
+        </p>
+      </td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">
+        <p *ngFor="let item of task.items">
+          {{item.unit_price}}
+        </p>
+      </td>
+      <td style="border:1px solid hsl(205, 100%, 50%);">
+        {{task.review.rate}}
+      </td>
+      <td style="border:1px solid #0094ff;">
+        {{task.count_money}}
+      </td>
+      <!-- <td style="border:1px solid #0094ff;">
+        <button *ngIf="task.is_completed == true" (click)="changeTaskStatus(task._id)">
+          Mark Done</button>
+        <button *ngIf="task.is_completed == false" (click)="changeTaskStatus(task._id)">
+          Done</button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
