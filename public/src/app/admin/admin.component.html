@@ -45,6 +45,9 @@
       <td style="border:1px solid hsl(205, 100%, 50%);">{{employee.avg_rate}}
         <button [routerLink]="['/admin', employee._id, 'reviews']">
           View All Reviews</button></td>
+
+      <td style="border:1px solid hsl(205, 100%, 50%);">{{employee.week_count}}</td>
+      <td style="border:1px solid #0094ff;">${{employee.week_count_money}}*{{employee.convert_rate}}*0.05=${{employee.week_count_money*employee.convert_rate*0.05}}</td>
       <td style="border:1px solid hsl(205, 100%, 50%);">{{employee.count_money}}</td>
       <td style="border:1px solid #0094ff;">
         ${{employee.count_money}}*{{employee.convert_rate}}*0.05=${{employee.count_money*employee.convert_rate*0.05}}
