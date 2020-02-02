@@ -27,21 +27,39 @@ const ProductSchema = new mongoose.Schema({
 );
 
 const OrderSchema = new mongoose.Schema({
+  Customer_first_name: {
+    type: String,
+    required: [true, "Customer First Name is required"],
+    minlength: [3, "Customer First Name has a minimum length of 3 characters"],
+    default: 'Default Customer_first_name!'
+  },
+  Customer_last_name: {
+    type: String,
+    required: [true, "Customer Last Name is required"],
+    minlength: [3, "Customer Last Name has a minimum length of 3 characters"],
+    default: 'Default Customer Last Name!'
+  },
   items: {
     type: Array,
-    default: [{ product_id: 'default_product_id', product_name: 'default_product_name', qty: 0 }]
+    default: [{ product_id: 'default_product_id', product_name: 'default_product_name', unit_price: 1, qty: 1 }]
   },
-  address: {
+  customer_address: {
     type: String,
     required: [true, "Order Address is required"],
     minlength: [3, "Order Address has a minimum length of 3 characters"],
     default: 'Default Order Address!'
   },
-  carrier: {
+  Carrier_first_name: {
     type: String,
-    required: [true, "Carrier_id is required"],
-    minlength: [3, "Carrier_id has a minimum length of 3 characters"],
-    default: 'defaultcarrier_id'
+    required: [true, "Carrier First Name is required"],
+    minlength: [3, "Carrier First Name has a minimum length of 3 characters"],
+    default: 'Default Carrier_first_name!'
+  },
+  Carrier_last_name: {
+    type: String,
+    required: [true, "Carrier Last Name is required"],
+    minlength: [3, "Carrier Last Name has a minimum length of 3 characters"],
+    default: 'Default Carrier Last Name!'
   },
   delivery_date: {
     type: Date,
@@ -54,8 +72,18 @@ const OrderSchema = new mongoose.Schema({
   },
   review: {
     type: Map,
-    default: { client_id: '', client_first_name: '', client_last_name: '', reviews: '', rate: 0 }
-  }
+    default: { client_id: '', client_first_name: '', client_last_name: '', reviews: '', rate: 3 }
+  },
+  is_reviewed: {
+    type: Boolean,
+    default: false
+  },
+  count_money: {
+    type: Number,
+    min: 0,
+    max: 10000,
+    default: 0
+  },
 },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
@@ -108,11 +136,11 @@ const EmployeeSchema = new mongoose.Schema(
       max: 5,
       default: 3
     },
-    week_count_money: {
+    count_money: {
       type: Number,
       min: 0,
       max: 10000,
-      default: 1
+      default: 0
     },
     tasks: {
       type: Array,

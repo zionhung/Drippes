@@ -23,10 +23,10 @@
       <td style="border:1px solid hsl(205, 100%, 50%);">{{task.review.rate}}</td>
       <td style="border:1px solid hsl(205, 100%, 50%);">{{task.review.reviews}}</td>
       <td style="border:1px solid #0094ff;">
-        {{task.review.created_at}}
+        {{task.updated_at}}
       </td>
       <td style="border:1px solid #0094ff;">
-        <button [routerLink]="['/removereview']">
+        <button (click)='removeReview(task._id)'>
           Remove Review</button>
       </td>
     </tr>

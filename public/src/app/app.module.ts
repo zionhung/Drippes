@@ -18,6 +18,7 @@ import { AddemployeeComponent } from './addemployee/addemployee.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReviewsComponent } from './reviews/reviews.component';
     AddemployeeComponent,
     OwnerComponent,
     AdminComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
